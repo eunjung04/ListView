@@ -36,7 +36,7 @@ class RoomAdapter(context:Context, resId:Int, list:ArrayList<Room>) : ArrayAdapt
 
         if(data.price>=10000) {
 
-            price.text = "${data.price / 10000}억 ${String.format("%,d"data.price % 10000)}"
+            price.text = "${data.price / 10000}억 ${String.format("%,d",data.price % 10000)}"
         }
         else {
             price.text= String.format("%,d",data.price)
@@ -45,13 +45,15 @@ class RoomAdapter(context:Context, resId:Int, list:ArrayList<Room>) : ArrayAdapt
         //주소와 층수=>"주소, 층수(상황마다 다른값)
 
         var floorStr=""
-        id(data.floor==0){
+
+
+        if(data.floor==0){
             floorStr="반지하"
         }
-        else  (data.floor > 0){
+        else if (data.floor > 0){
             floorStr="${data.floor}층"
         }
-        else if{
+        else {
             floorStr="지하${data.address}층"
         }
 
