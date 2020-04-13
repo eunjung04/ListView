@@ -35,7 +35,11 @@ class MainActivity : AppCompatActivity() {
             //몇번줄을 눌렀는지 토스트로 출력
             Toast.makeText(this,"${position}번 줄 클릭",Toast.LENGTH_SHORT)
 
-            roomListView.set
+            roomListView.setOnItemLongClickListener { parent, view, position, id ->
+
+                Toast.makeText(this, "${position}번 줄 오래 클릭", Toast.LENGTH_SHORT).show()
+
+                return@setOnItemLongClickListener  true
         }
 
 
